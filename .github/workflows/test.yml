@@ -1,0 +1,20 @@
+name: Simple CI
+
+on: [push, pull_request]
+
+jobs:
+  simple-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Echo Details
+        run: |
+          echo "Running CI for ${{ github.repository }}"
+          echo "Triggered by ${{ github.event_name }}"
+          echo "Branch: ${{ github.ref }}"
+
+      - name: List Files
+        run: ls -la
